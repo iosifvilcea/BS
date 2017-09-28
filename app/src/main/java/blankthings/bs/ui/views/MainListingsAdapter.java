@@ -20,6 +20,10 @@ public class MainListingsAdapter extends RecyclerView.Adapter<MainListingsViewHo
         listings = new ArrayList<>();
         listings.add(new Item("item number one"));
         listings.add(new Item("some other item"));
+        listings.add(new Item("item number three"));
+        listings.add(new Item("abc def"));
+        listings.add(new Item("test test test"));
+        listings.add(new Item("meh"));
     }
 
 

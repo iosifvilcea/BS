@@ -1,22 +1,24 @@
 package blankthings.bs.ui.views;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.widget.Toast;
 
 import blankthings.bs.R;
-import blankthings.bs.ui.base.ViewContract;
+import blankthings.bs.data.models.Item;
+import blankthings.bs.ui.base.BaseView;
 import blankthings.bs.ui.presenters.MainPresenterImpl;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements ViewContract {
+public class MainActivity extends BaseView implements MainView {
 
     @BindView(R.id.main_recycler)
     protected RecyclerView recyclerView;
+
+    @BindView(R.id.toolbar)
+    protected Toolbar toolbar;
 
     private MainPresenterImpl mainPresenter;
 
@@ -26,10 +28,7 @@ public class MainActivity extends AppCompatActivity implements ViewContract {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         setupRecyclerView();
         setupPresenter();
     }
@@ -59,19 +58,8 @@ public class MainActivity extends AppCompatActivity implements ViewContract {
 
 
     @Override
-    public void showError(String string) {
-        Toast.makeText(this, string, Toast.LENGTH_SHORT).show();
+    public void goToItemDetail(Item item) {
+        // TODO: 9/27/17 - GO TO ITEM DETAIL PAGE.
     }
 
-
-    @Override
-    public void showLoading() {
-        // TODO: 9/26/17
-    }
-
-
-    @Override
-    public void hideLoading() {
-        // TODO: 9/26/17
-    }
 }

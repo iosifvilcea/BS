@@ -4,16 +4,17 @@ package blankthings.bs.ui.base;
  * Created by iosif on 9/26/17.
  */
 
-public abstract class BasePresenter implements PresenterContract<ViewContract> {
+public abstract class BasePresenter<T extends ViewContract>
+        implements PresenterContract<T> {
 
-    private ViewContract view;
+    private T view;
 
-    public BasePresenter(ViewContract view) {
+    public BasePresenter(T view) {
         attach(view);
     }
 
     @Override
-    public void attach(ViewContract view) {
+    public void attach(T view) {
         this.view = view;
     }
 
@@ -22,11 +23,14 @@ public abstract class BasePresenter implements PresenterContract<ViewContract> {
         view = null;
     }
 
+    @Override
     public boolean hasView() {
         return view != null;
     }
 
-    public ViewContract getView() {
+    @Override
+    public T getView() {
         return view;
     }
+
 }

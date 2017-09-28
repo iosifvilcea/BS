@@ -12,8 +12,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="blankthings.bs.ui.views.MainActivity"
-            android:label="@string/title_activity_main"
+            android:name=".ui.views.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
