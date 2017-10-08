@@ -1,5 +1,6 @@
 package blankthings.bs.data;
 
+import blankthings.bs.BuildConfig;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -31,11 +32,13 @@ public class ApiBuilder {
 
 
     private OkHttpClient generateClient() {
-        final HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
-
         final OkHttpClient.Builder client = new OkHttpClient.Builder();
-        client.addInterceptor(interceptor);
+
+        if (BuildConfig.DEBUG) {
+            final HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+            interceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
+            client.addInterceptor(interceptor);
+        }
 
         return client.build();
     }

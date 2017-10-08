@@ -28,7 +28,6 @@ public class MainPresenterImpl implements MainPresenter<MainView> {
 
     @Override
     public void init() {
-
     }
 
 
@@ -64,7 +63,6 @@ public class MainPresenterImpl implements MainPresenter<MainView> {
 
     @Override
     public void itemSelected(Post post) {
-
     }
 
 
