@@ -1,6 +1,8 @@
 package blankthings.bs.ui.views;
 
-import blankthings.bs.data.models.Item;
+import java.util.List;
+
+import blankthings.bs.data.models.Post;
 import blankthings.bs.ui.base.BaseView;
 
 /**
@@ -9,6 +11,8 @@ import blankthings.bs.ui.base.BaseView;
 
 public interface MainView extends BaseView {
 
-    void goToItemDetail(Item item);
+    void populatePosts(List<Post> posts);
+
+    void goToItemDetail(Post post);
 
 }

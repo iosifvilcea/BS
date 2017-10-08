@@ -2,8 +2,8 @@ package blankthings.bs.data;
 
 import java.util.List;
 
-import blankthings.bs.data.models.Item;
-import retrofit2.Call;
+import blankthings.bs.data.models.Post;
+import io.reactivex.Single;
 import retrofit2.http.GET;
 
 /**
@@ -12,7 +12,7 @@ import retrofit2.http.GET;
 
 public interface ApiService {
 
-    @GET("/v1/ticker/")
-    Call<List<Item>> tickers();
+    @GET("/posts/")
+    Single<List<Post>> posts();
 
 }

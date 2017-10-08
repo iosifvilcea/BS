@@ -1,6 +1,11 @@
 package blankthings.bs.ui.presenters;
 
-import blankthings.bs.data.models.Item;
+import android.util.Log;
+
+import java.util.List;
+
+import blankthings.bs.data.interactors.PostInteractor;
+import blankthings.bs.data.models.Post;
 import blankthings.bs.ui.views.MainView;
 
 /**
@@ -9,16 +14,27 @@ import blankthings.bs.ui.views.MainView;
 
 public class MainPresenterImpl implements MainPresenter<MainView> {
 
+    public static final String TAG = MainPresenterImpl.class.getSimpleName();
+
     private MainView mainView;
+
+    private PostInteractor postInteractor;
 
     public MainPresenterImpl(MainView view) {
         this.mainView = view;
+        postInteractor = new PostInteractor(this);
     }
 
 
     @Override
     public void init() {
 
+    }
+
+
+    @Override
+    public void terminate() {
+        postInteractor.cleanup();
     }
 
 
@@ -35,14 +51,27 @@ public class MainPresenterImpl implements MainPresenter<MainView> {
 
 
     @Override
-    public void getTracker() {
+    public void getPosts() {
+        postInteractor.getPosts();
+    }
+
+
+    @Override
+    public void setPosts(List<Post> posts) {
+        getView().populatePosts(posts);
+    }
+
+
+    @Override
+    public void itemSelected(Post post) {
 
     }
 
 
     @Override
-    public void itemSelected(Item item) {
-
+    public void handleError(Throwable t) {
+        Log.e(TAG, "Error", t);
+        getView().showError("Oops! Something went wrong.");
     }
 
 }

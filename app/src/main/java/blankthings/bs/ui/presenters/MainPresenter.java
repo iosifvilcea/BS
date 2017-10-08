@@ -1,6 +1,8 @@
 package blankthings.bs.ui.presenters;
 
-import blankthings.bs.data.models.Item;
+import java.util.List;
+
+import blankthings.bs.data.models.Post;
 import blankthings.bs.ui.base.BasePresenter;
 import blankthings.bs.ui.views.MainView;
 
@@ -12,8 +14,12 @@ public interface MainPresenter<V extends MainView> extends BasePresenter {
 
     V getView();
 
-    void getTracker();
+    void getPosts();
 
-    void itemSelected(Item item);
+    void setPosts(List<Post> posts);
+
+    void itemSelected(Post post);
+
+    void handleError(Throwable t);
 
 }

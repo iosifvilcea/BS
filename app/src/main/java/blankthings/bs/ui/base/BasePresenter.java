@@ -10,4 +10,6 @@ public interface BasePresenter {
 
     boolean hasView();
 
+    void terminate();
+
 }

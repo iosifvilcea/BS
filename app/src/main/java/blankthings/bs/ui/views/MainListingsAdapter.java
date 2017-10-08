@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import blankthings.bs.data.models.Item;
+import blankthings.bs.data.models.Post;
 
 /**
  * Created by iosif on 9/12/17.
@@ -14,16 +14,10 @@ import blankthings.bs.data.models.Item;
 
 public class MainListingsAdapter extends RecyclerView.Adapter<MainListingsViewHolder> {
 
-    private List<Item> listings;
+    private List<Post> listings;
 
     MainListingsAdapter() {
         listings = new ArrayList<>();
-        listings.add(new Item("item number one"));
-        listings.add(new Item("some other item"));
-        listings.add(new Item("item number three"));
-        listings.add(new Item("abc def"));
-        listings.add(new Item("test test test"));
-        listings.add(new Item("meh"));
     }
 
 
@@ -32,10 +26,18 @@ public class MainListingsAdapter extends RecyclerView.Adapter<MainListingsViewHo
         return new MainListingsViewHolder(MainListingsViewHolder.inflate(parent));
     }
 
+
     @Override
     public void onBindViewHolder(MainListingsViewHolder holder, int position) {
         holder.onBind(listings.get(position));
     }
+
+
+    public void populateList(List<Post> posts) {
+        listings.addAll(posts);
+        notifyDataSetChanged();
+    }
+
 
     @Override
     public int getItemCount() {

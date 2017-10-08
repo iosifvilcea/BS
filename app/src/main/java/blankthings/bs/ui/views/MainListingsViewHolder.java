@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import blankthings.bs.R;
-import blankthings.bs.data.models.Item;
+import blankthings.bs.data.models.Post;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -31,8 +31,8 @@ public class MainListingsViewHolder extends RecyclerView.ViewHolder {
         ButterKnife.bind(this, itemView);
     }
 
-    public void onBind(Item item) {
-        textHeader.setText(item.getId());
+    public void onBind(Post post) {
+        textHeader.setText(post.getId());
     }
 
 }

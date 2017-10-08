@@ -5,8 +5,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import java.util.List;
+
 import blankthings.bs.R;
-import blankthings.bs.data.models.Item;
+import blankthings.bs.data.models.Post;
 import blankthings.bs.ui.base.BaseActivity;
 import blankthings.bs.ui.presenters.MainPresenterImpl;
 import butterknife.BindView;
@@ -21,6 +23,8 @@ public class MainActivity extends BaseActivity implements MainView {
     protected Toolbar toolbar;
 
     private MainPresenterImpl mainPresenter;
+
+    private MainListingsAdapter adapter;
 
 
     @Override
@@ -38,7 +42,7 @@ public class MainActivity extends BaseActivity implements MainView {
     protected void onResume() {
         super.onResume();
         if (mainPresenter != null) {
-            mainPresenter.getTracker();
+            mainPresenter.getPosts();
         }
     }
 
@@ -47,7 +51,7 @@ public class MainActivity extends BaseActivity implements MainView {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        final MainListingsAdapter adapter = new MainListingsAdapter();
+        adapter = new MainListingsAdapter();
         recyclerView.setAdapter(adapter);
     }
 
@@ -58,7 +62,13 @@ public class MainActivity extends BaseActivity implements MainView {
 
 
     @Override
-    public void goToItemDetail(Item item) {
+    public void populatePosts(List<Post> posts) {
+        adapter.populateList(posts);
+    }
 
+
+    @Override
+    public void goToItemDetail(Post post) {
+        // TODO: 10/7/17
     }
 }
