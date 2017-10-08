@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "blankthings.cointick"
         minSdkVersion 19
@@ -23,13 +23,18 @@ ext {
     SUPPORT_VERSION = '25.4.0'
     BUTTERKNIFE_VERSION = '8.8.1'
     RETROFIT_VERSION = '2.3.0'
+    MOCKITO_VERSION = '2.6.9'
 }
 
 dependencies {
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    testCompile 'junit:junit:4.12'
+    /** Testing */
+    testCompile "junit:junit:4.12"
+    testCompile "org.mockito:mockito-core:${MOCKITO_VERSION}"
+    androidTestCompile "org.mockito:mockito-android:${MOCKITO_VERSION}"
+
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })

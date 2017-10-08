@@ -1,51 +1,21 @@
 package blankthings.bs.ui.base;
 
-import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
+import android.support.annotation.StringRes;
 
 /**
  * Created by iosif on 9/27/17.
  */
 
-public abstract class BaseView extends AppCompatActivity implements ViewContract {
+public interface BaseView {
 
+    void showError(String error);
 
-    @Override
-    public void showError(String error) {
-        Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
-    }
+    void showLoading();
 
+    void hideLoading();
 
-    @Override
-    public void showLoading() {
-        // TODO: 9/27/17
-    }
+    void setTitle(String title);
 
+    void setTitle(@StringRes int stringResource);
 
-    @Override
-    public void hideLoading() {
-        // TODO: 9/27/17
-    }
-
-
-    @Override
-    public void goBack() {
-        onBackPressed();
-    }
-
-
-    @Override
-    public void setTitle(String title) {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(title);
-        }
-    }
-
-
-    @Override
-    public void setTitle(int stringResource) {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(stringResource);
-        }
-    }
 }

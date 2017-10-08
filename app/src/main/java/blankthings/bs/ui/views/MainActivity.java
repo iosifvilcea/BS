@@ -7,12 +7,12 @@ import android.support.v7.widget.Toolbar;
 
 import blankthings.bs.R;
 import blankthings.bs.data.models.Item;
-import blankthings.bs.ui.base.BaseView;
+import blankthings.bs.ui.base.BaseActivity;
 import blankthings.bs.ui.presenters.MainPresenterImpl;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends BaseView implements MainView {
+public class MainActivity extends BaseActivity implements MainView {
 
     @BindView(R.id.main_recycler)
     protected RecyclerView recyclerView;
@@ -59,7 +59,6 @@ public class MainActivity extends BaseView implements MainView {
 
     @Override
     public void goToItemDetail(Item item) {
-        // TODO: 9/27/17 - GO TO ITEM DETAIL PAGE.
-    }
 
+    }
 }

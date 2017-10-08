@@ -1,29 +1,48 @@
 package blankthings.bs.ui.presenters;
 
-import blankthings.bs.data.interactors.TickerInteractor;
 import blankthings.bs.data.models.Item;
-import blankthings.bs.ui.base.BasePresenter;
-import blankthings.bs.ui.views.MainActivity;
+import blankthings.bs.ui.views.MainView;
 
 /**
  * Created by iosif on 9/26/17.
  */
 
-public class MainPresenterImpl extends BasePresenter<MainActivity> implements MainPresenter {
+public class MainPresenterImpl implements MainPresenter<MainView> {
 
-    public MainPresenterImpl(MainActivity view) {
-        super(view);
+    private MainView mainView;
+
+    public MainPresenterImpl(MainView view) {
+        this.mainView = view;
     }
+
+
+    @Override
+    public void init() {
+
+    }
+
+
+    @Override
+    public boolean hasView() {
+        return mainView != null;
+    }
+
+
+    @Override
+    public MainView getView() {
+        return mainView;
+    }
+
 
     @Override
     public void getTracker() {
-        final TickerInteractor interactor = new TickerInteractor();
-        interactor.getTicker();
+
     }
+
 
     @Override
     public void itemSelected(Item item) {
-        getView().goToItemDetail(item);
+
     }
 
 }
