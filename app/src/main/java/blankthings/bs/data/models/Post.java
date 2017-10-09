@@ -1,22 +1,31 @@
 package blankthings.bs.data.models;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by iosif on 9/26/17.
  */
 
+@Entity
 public class Post {
 
+    @PrimaryKey
+    @SerializedName("post_id")
+    private String id;
+
+    @ColumnInfo(name = "post_userId")
     @SerializedName("userId")
     private String userId;
 
-    @SerializedName("d")
-    private String id;
-
+    @ColumnInfo(name = "post_title")
     @SerializedName("title")
     private String title;
 
+    @ColumnInfo(name = "post_body")
     @SerializedName("body")
     private String body;
 

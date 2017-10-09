@@ -63,6 +63,8 @@ public class MainPresenterImpl implements MainPresenter<MainView> {
 
     @Override
     public void itemSelected(Post post) {
+        // TODO: 10/7/17
+        getView().showError("Not yet implemented.");
     }
 
 

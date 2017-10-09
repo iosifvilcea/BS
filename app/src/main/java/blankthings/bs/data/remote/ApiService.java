@@ -1,4 +1,4 @@
-package blankthings.bs.data;
+package blankthings.bs.data.remote;
 
 import java.util.List;
 

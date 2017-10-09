@@ -26,13 +26,17 @@ public class MainListingsViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.text_header)
     protected TextView textHeader;
 
+    @BindView(R.id.text_body)
+    protected TextView textBody;
+
     public MainListingsViewHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
     }
 
     public void onBind(Post post) {
-        textHeader.setText(post.getId());
+        textHeader.setText(post.getTitle());
+        textBody.setText(post.getBody());
     }
 
 }

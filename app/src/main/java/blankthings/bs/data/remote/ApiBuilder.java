@@ -1,4 +1,4 @@
-package blankthings.bs.data;
+package blankthings.bs.data.remote;
 
 import blankthings.bs.BuildConfig;
 import okhttp3.OkHttpClient;

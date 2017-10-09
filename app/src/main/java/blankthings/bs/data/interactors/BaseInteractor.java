@@ -1,7 +1,7 @@
 package blankthings.bs.data.interactors;
 
-import blankthings.bs.data.ApiBuilder;
-import blankthings.bs.data.ApiService;
+import blankthings.bs.data.remote.ApiBuilder;
+import blankthings.bs.data.remote.ApiService;
 import io.reactivex.disposables.CompositeDisposable;
 
 /**
