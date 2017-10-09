@@ -8,6 +8,7 @@ import android.arch.persistence.room.Query;
 import java.util.List;
 
 import blankthings.bs.data.models.Post;
+import io.reactivex.Flowable;
 
 /**
  * Created by iosif on 10/8/17.
@@ -16,14 +17,14 @@ import blankthings.bs.data.models.Post;
 @Dao
 public interface PostDao {
 
-    @Query("SELECT * FROM post")
-    List<Post> getAll();
+    @Query("SELECT * FROM posts")
+    Flowable<List<Post>> getAll();
 
-    @Query("SELECT * FROM post WHERE post_title LIKE :title")
-    List<Post> getAllWithTitle(String title);
+    @Query("SELECT * FROM posts WHERE title LIKE :title")
+    Flowable<Post> getAllWithTitle(String title);
 
     @Insert
-    void insertAll(Post... posts);
+    void insertAll(List<Post> posts);
 
     @Delete
     void delete(Post post);

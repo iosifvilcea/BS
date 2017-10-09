@@ -5,6 +5,7 @@ import android.util.Log;
 import java.util.List;
 
 import blankthings.bs.data.interactors.PostInteractor;
+import blankthings.bs.data.local.doa.PostDao;
 import blankthings.bs.data.models.Post;
 import blankthings.bs.ui.views.MainView;
 
@@ -20,9 +21,9 @@ public class MainPresenterImpl implements MainPresenter<MainView> {
 
     private PostInteractor postInteractor;
 
-    public MainPresenterImpl(MainView view) {
+    public MainPresenterImpl(MainView view, PostDao postDao) {
         this.mainView = view;
-        postInteractor = new PostInteractor(this);
+        postInteractor = new PostInteractor(this, postDao);
     }
 
 

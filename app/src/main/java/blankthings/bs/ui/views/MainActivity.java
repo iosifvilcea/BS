@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import java.util.List;
 
 import blankthings.bs.R;
+import blankthings.bs.data.local.BsDatabase;
 import blankthings.bs.data.models.Post;
 import blankthings.bs.ui.base.BaseActivity;
 import blankthings.bs.ui.presenters.MainPresenterImpl;
@@ -57,7 +58,8 @@ public class MainActivity extends BaseActivity implements MainView {
 
 
     private void setupPresenter() {
-        mainPresenter = new MainPresenterImpl(this);
+        final BsDatabase bsDatabase = BsDatabase.getInstance(getApplicationContext());
+        mainPresenter = new MainPresenterImpl(this, bsDatabase.postDao());
     }
 
 

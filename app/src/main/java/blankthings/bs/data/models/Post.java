@@ -10,22 +10,22 @@ import com.google.gson.annotations.SerializedName;
  * Created by iosif on 9/26/17.
  */
 
-@Entity
+@Entity(tableName = "posts")
 public class Post {
 
     @PrimaryKey
-    @SerializedName("post_id")
+    @SerializedName("id")
     private String id;
 
-    @ColumnInfo(name = "post_userId")
+    @ColumnInfo(name = "userId")
     @SerializedName("userId")
     private String userId;
 
-    @ColumnInfo(name = "post_title")
+    @ColumnInfo(name = "title")
     @SerializedName("title")
     private String title;
 
-    @ColumnInfo(name = "post_body")
+    @ColumnInfo(name = "body")
     @SerializedName("body")
     private String body;
 
