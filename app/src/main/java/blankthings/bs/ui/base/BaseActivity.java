@@ -1,5 +1,6 @@
 package blankthings.bs.ui.base;
 
+import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
@@ -40,7 +41,7 @@ public abstract class BaseActivity<P extends BasePresenter>
 
 
     @Override
-    public void setTitle(int titleId) {
+    public void setTitle(@StringRes int titleId) {
         setTitle(getString(titleId));
     }
 }
