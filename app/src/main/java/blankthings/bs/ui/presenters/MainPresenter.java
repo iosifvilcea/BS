@@ -10,9 +10,7 @@ import blankthings.bs.ui.views.MainView;
  * Created by iosif on 9/26/17.
  */
 
-public interface MainPresenter<V extends MainView> extends BasePresenter {
-
-    V getView();
+public interface MainPresenter<V extends MainView> extends BasePresenter<V> {
 
     void getPosts();
 

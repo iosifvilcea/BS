@@ -74,5 +74,4 @@ public class MainPresenterImpl implements MainPresenter<MainView> {
         Log.e(TAG, "Error", t);
         getView().showError("Oops! Something went wrong.");
     }
-
 }
