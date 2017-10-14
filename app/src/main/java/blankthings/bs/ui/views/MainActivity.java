@@ -13,7 +13,6 @@ import blankthings.bs.data.models.Post;
 import blankthings.bs.ui.base.BaseActivity;
 import blankthings.bs.ui.presenters.MainPresenterImpl;
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity implements MainView {
 
@@ -31,13 +30,15 @@ public class MainActivity extends BaseActivity implements MainView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         setupRecyclerView();
         setupPresenter();
     }
 
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_main;
+    }
 
     @Override
     protected void onResume() {

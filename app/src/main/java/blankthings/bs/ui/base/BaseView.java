@@ -1,5 +1,6 @@
 package blankthings.bs.ui.base;
 
+import android.support.annotation.LayoutRes;
 import android.support.annotation.StringRes;
 
 /**
@@ -17,5 +18,8 @@ public interface BaseView {
     void setTitle(String title);
 
     void setTitle(@StringRes int stringResource);
+
+    @LayoutRes
+    int getLayoutId();
 
 }
