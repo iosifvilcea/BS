@@ -4,8 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import blankthings.bs.data.local.doa.PostDao;
 import blankthings.bs.ui.presenters.MainPresenterImpl;
 import blankthings.bs.ui.views.MainView;
 
@@ -19,12 +21,18 @@ public class MainPresenterTest extends BaseTest {
     @Mock
     MainView mainView;
 
+    @Mock
+    PostDao postDao;
+
     MainPresenterImpl mainPresenter;
 
     @Override
     public void setup() {
         super.setup();
-        mainPresenter = new MainPresenterImpl(mainView);
+
+        mainView = Mockito.mock(MainView.class);
+        postDao = Mockito.mock(PostDao.class);
+        mainPresenter = new MainPresenterImpl(mainView, postDao);
     }
 
     @Test

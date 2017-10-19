@@ -1,12 +1,9 @@
 package blankthings.bs.managers;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
 import blankthings.bs.R;
 import blankthings.bs.ui.base.BaseFragment;
@@ -68,7 +65,6 @@ public class NavigationManager {
     }
 
 
-
     public void goBackToFragment(final String tag) {
         final FragmentManager fragmentManager = activity.getSupportFragmentManager();
         fragmentManager.popBackStack(tag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
@@ -89,45 +85,45 @@ public class NavigationManager {
     }
 
 
-    @Override
-    public void startLoading() {
-        crossfadeLoading(true);
-    }
-
-
-    @Override
-    public void stopLoading() {
-        crossfadeLoading(false);
-    }
-
-
-    private void crossfadeLoading(boolean startLoading) {
-        int loadingAnimDuration = 400;
-        final float startAlpha, endingAlpha;
-        final int stopVisibility;
-        if (startLoading) {
-            startAlpha = 0f;
-            endingAlpha = 1f;
-            stopVisibility = View.VISIBLE;
-        } else {
-            startAlpha = 1f;
-            endingAlpha = 0f;
-            stopVisibility = View.GONE;
-        }
-
-        loadingView.setAlpha(startAlpha);
-        loadingView.setVisibility(View.VISIBLE);
-
-        loadingView.animate()
-                .alpha(endingAlpha)
-                .setDuration(loadingAnimDuration)
-                .setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        loadingView.setVisibility(stopVisibility);
-                    }
-                });
-    }
+//    @Override
+//    public void startLoading() {
+//        crossfadeLoading(true);
+//    }
+//
+//
+//    @Override
+//    public void stopLoading() {
+//        crossfadeLoading(false);
+//    }
+//
+//
+//    private void crossfadeLoading(boolean startLoading) {
+//        int loadingAnimDuration = 400;
+//        final float startAlpha, endingAlpha;
+//        final int stopVisibility;
+//        if (startLoading) {
+//            startAlpha = 0f;
+//            endingAlpha = 1f;
+//            stopVisibility = View.VISIBLE;
+//        } else {
+//            startAlpha = 1f;
+//            endingAlpha = 0f;
+//            stopVisibility = View.GONE;
+//        }
+//
+//        loadingView.setAlpha(startAlpha);
+//        loadingView.setVisibility(View.VISIBLE);
+//
+//        loadingView.animate()
+//                .alpha(endingAlpha)
+//                .setDuration(loadingAnimDuration)
+//                .setListener(new AnimatorListenerAdapter() {
+//                    @Override
+//                    public void onAnimationEnd(Animator animation) {
+//                        loadingView.setVisibility(stopVisibility);
+//                    }
+//                });
+//    }
 
 
     /**
