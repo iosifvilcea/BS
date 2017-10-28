@@ -11,9 +11,6 @@ import blankthings.bs.data.local.doa.PostDao;
 import blankthings.bs.ui.presenters.MainPresenterImpl;
 import blankthings.bs.ui.views.MainView;
 
-/**
- * Created by iosif on 9/27/17.
- */
 
 @RunWith(MockitoJUnitRunner.class)
 public class MainPresenterTest extends BaseTest {
