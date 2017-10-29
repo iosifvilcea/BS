@@ -2,6 +2,7 @@ package blankthings.bs;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -21,5 +22,10 @@ public class BaseTest {
 
     @After
     public void teardown() {
+    }
+
+
+    @Test
+    public void initTest() {
     }
 }
