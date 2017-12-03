@@ -1,44 +1,50 @@
 package blankthings.bs.ui.presenters;
 
-import blankthings.bs.data.interactors.PostInteractor;
-import blankthings.bs.data.local.doa.PostDao;
+import org.web3j.protocol.core.methods.response.Transaction;
+
+import blankthings.bs.data.interactors.EthInteractor;
+import blankthings.bs.ui.base.BasePresenter;
 import blankthings.bs.ui.views.MainView;
+import io.reactivex.annotations.NonNull;
 
 
-public class MainPresenterImpl implements MainPresenter<MainView> {
+public class MainPresenterImpl extends BasePresenter<MainView> implements MainPresenter {
 
-    public static final String TAG = MainPresenterImpl.class.getSimpleName();
+    private final EthInteractor interactor;
 
-    private MainView mainView;
-
-    private PostInteractor postInteractor;
-
-    public MainPresenterImpl(MainView view, PostDao postDao) {
-        this.mainView = view;
-        postInteractor = new PostInteractor(this, postDao);
+    public MainPresenterImpl(@NonNull final MainView view) {
+        this.view = view;
+        interactor = new EthInteractor(this);
     }
 
 
     @Override
     public void init() {
+        super.init();
+        fetchLatestTransactions();
     }
 
 
     @Override
     public void terminate() {
-        postInteractor.cleanup();
+        super.terminate();
+        interactor.cleanup();
     }
 
 
     @Override
-    public boolean hasView() {
-        return mainView != null;
+    public void fetchLatestTransactions() {
+        interactor.fetchLatestTransactions();
     }
 
 
     @Override
-    public MainView getView() {
-        return mainView;
-    }
+    public void receivedTransaction(Transaction transaction) {
+        if (view == null) {
+            return;
+        }
 
+        final String blockHash = transaction.getBlockHash();
+        view.showLatestTransaction(blockHash);
+    }
 }

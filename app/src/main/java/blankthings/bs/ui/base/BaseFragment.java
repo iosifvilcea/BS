@@ -2,6 +2,7 @@ package blankthings.bs.ui.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -11,9 +12,6 @@ import android.widget.Toast;
 
 import butterknife.ButterKnife;
 
-/**
- * Created by iosif on 10/13/17.
- */
 
 public abstract class BaseFragment<P extends BasePresenter>
         extends Fragment
@@ -58,7 +56,7 @@ public abstract class BaseFragment<P extends BasePresenter>
 
 
     @Override
-    public void setTitle(String title) {
+    public void setTitle(@Nullable String title) {
         if (getActivity() instanceof AppCompatActivity
                 && ((AppCompatActivity) getActivity()).getSupportActionBar() != null) {
             ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(title);
@@ -67,7 +65,7 @@ public abstract class BaseFragment<P extends BasePresenter>
 
 
     @Override
-    public void setTitle(int stringResource) {
+    public void setTitle(@StringRes int stringResource) {
         setTitle(getString(stringResource));
     }
 

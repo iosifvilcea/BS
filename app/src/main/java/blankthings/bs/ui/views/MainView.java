@@ -5,6 +5,6 @@ import blankthings.bs.ui.base.BaseView;
 
 public interface MainView extends BaseView {
 
-    // TODO: 12/2/17
+    void showLatestTransaction(final String blockHash);
 
 }

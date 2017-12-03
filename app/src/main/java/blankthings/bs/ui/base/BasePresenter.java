@@ -1,14 +1,24 @@
 package blankthings.bs.ui.base;
 
 
-public interface BasePresenter<V> {
+public abstract class BasePresenter<V> {
 
-    void init();
+    protected V view = null;
 
-    boolean hasView();
+    public void init() {
+    }
 
-    V getView();
 
-    void terminate();
+    boolean hasView() {
+        return view != null;
+    }
+
+    V getView() {
+        return view;
+    }
+
+    public void terminate() {
+        view = null;
+    }
 
 }

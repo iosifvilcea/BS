@@ -4,9 +4,6 @@ import blankthings.bs.data.remote.ApiBuilder;
 import blankthings.bs.data.remote.ApiService;
 import io.reactivex.disposables.CompositeDisposable;
 
-/**
- * Created by iosif on 9/26/17.
- */
 
 public abstract class BaseInteractor {
 

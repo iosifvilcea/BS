@@ -28,10 +28,16 @@
         android:layout_height="match_parent"
         android:paddingTop="?android:attr/actionBarSize">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/main_recycler"
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/main_recycler"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" />-->
+
+        <TextView
+            android:id="@+id/block_hash"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
 
     </FrameLayout>
 

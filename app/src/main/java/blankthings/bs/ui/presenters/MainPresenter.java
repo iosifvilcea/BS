@@ -1,11 +1,11 @@
 package blankthings.bs.ui.presenters;
 
-import blankthings.bs.ui.base.BasePresenter;
-import blankthings.bs.ui.views.MainView;
+import org.web3j.protocol.core.methods.response.Transaction;
 
+public interface MainPresenter {
 
-public interface MainPresenter<V extends MainView> extends BasePresenter<V> {
+    void fetchLatestTransactions();
 
-    // TODO: 12/2/17
+    void receivedTransaction(final Transaction transaction);
 
 }

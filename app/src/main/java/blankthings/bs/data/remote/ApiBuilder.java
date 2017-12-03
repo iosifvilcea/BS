@@ -1,5 +1,9 @@
 package blankthings.bs.data.remote;
 
+import org.web3j.protocol.Web3j;
+import org.web3j.protocol.Web3jFactory;
+import org.web3j.protocol.http.HttpService;
+
 import blankthings.bs.BuildConfig;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -16,6 +20,7 @@ public class ApiBuilder {
 
     public ApiBuilder() {
         final OkHttpClient okHttpClient = generateClient();
+        generateBlockchainClient();
 
         final Retrofit retrofit = new Retrofit.Builder()
                 .client(okHttpClient)
@@ -39,6 +44,15 @@ public class ApiBuilder {
 
         return client.build();
     }
+
+
+    /**
+     *  defaults to http://localhost:8545/
+     */
+    public Web3j generateBlockchainClient() {
+        return Web3jFactory.build(new HttpService());
+    }
+
 
     public ApiService getApiService() {
         return apiService;

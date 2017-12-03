@@ -4,13 +4,10 @@ import blankthings.bs.data.local.doa.PostDao;
 import blankthings.bs.data.models.Post;
 import blankthings.bs.ui.presenters.ListingDetailPresenter;
 
-/**
- * Created by iosif on 10/13/17.
- */
 
 public class PostDetailInteractor extends BaseInteractor {
 
-    public static final String TAG = PostInteractor.class.getSimpleName();
+    public static final String TAG = PostDetailInteractor.class.getSimpleName();
 
     private ListingDetailPresenter presenter;
     private PostDao postDao;
