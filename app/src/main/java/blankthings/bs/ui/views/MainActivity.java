@@ -5,11 +5,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
-import java.util.List;
-
 import blankthings.bs.R;
 import blankthings.bs.data.local.BsDatabase;
-import blankthings.bs.data.models.Post;
 import blankthings.bs.ui.base.BaseActivity;
 import blankthings.bs.ui.presenters.MainPresenterImpl;
 import butterknife.BindView;
@@ -39,13 +36,10 @@ public class MainActivity extends BaseActivity implements MainView {
     public int getLayoutId() {
         return R.layout.activity_main;
     }
-
+`
     @Override
     protected void onResume() {
         super.onResume();
-        if (mainPresenter != null) {
-            mainPresenter.getPosts();
-        }
     }
 
 
@@ -61,17 +55,5 @@ public class MainActivity extends BaseActivity implements MainView {
     private void setupPresenter() {
         final BsDatabase bsDatabase = BsDatabase.getInstance(getApplicationContext());
         mainPresenter = new MainPresenterImpl(this, bsDatabase.postDao());
-    }
-
-
-    @Override
-    public void populatePosts(List<Post> posts) {
-        adapter.populateList(posts);
-    }
-
-
-    @Override
-    public void goToItemDetail(Post post) {
-        // TODO: 10/7/17
     }
 }

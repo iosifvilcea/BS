@@ -9,9 +9,6 @@ import blankthings.bs.R;
 import blankthings.bs.ui.base.BaseFragment;
 import blankthings.bs.ui.base.BaseView;
 
-/**
- * Created by iosif on 10/13/17.
- */
 
 public class NavigationManager {
 

@@ -8,9 +8,6 @@ import android.widget.Toast;
 
 import butterknife.ButterKnife;
 
-/**
- * Created by iosif on 10/3/17.
- */
 
 public abstract class BaseActivity<P extends BasePresenter>
         extends AppCompatActivity
