@@ -8,4 +8,6 @@ public interface MainPresenter {
 
     void receivedTransaction(final Transaction transaction);
 
+    void failedTransaction(final Throwable throwable);
+
 }

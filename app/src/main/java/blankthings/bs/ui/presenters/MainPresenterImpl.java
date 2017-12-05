@@ -40,11 +40,21 @@ public class MainPresenterImpl extends BasePresenter<MainView> implements MainPr
 
     @Override
     public void receivedTransaction(Transaction transaction) {
-        if (view == null) {
+        if (!hasView()) {
             return;
         }
 
         final String blockHash = transaction.getBlockHash();
         view.showLatestTransaction(blockHash);
+    }
+
+
+    @Override
+    public void failedTransaction(Throwable throwable) {
+        if (!hasView()) {
+            return;
+        }
+
+        view.showError(throwable.getLocalizedMessage());
     }
 }

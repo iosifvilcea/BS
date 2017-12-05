@@ -5,15 +5,13 @@ public abstract class BasePresenter<V> {
 
     protected V view = null;
 
-    public void init() {
-    }
+    public void init() {}
 
-
-    boolean hasView() {
+    public boolean hasView() {
         return view != null;
     }
 
-    V getView() {
+    public V getView() {
         return view;
     }
 

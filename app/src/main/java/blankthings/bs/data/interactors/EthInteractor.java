@@ -5,6 +5,7 @@ import org.web3j.protocol.Web3j;
 import blankthings.bs.data.remote.ApiBuilder;
 import blankthings.bs.ui.presenters.MainPresenter;
 import rx.Subscription;
+import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 
 public class EthInteractor extends BaseInteractor {
@@ -25,11 +26,9 @@ public class EthInteractor extends BaseInteractor {
     public void fetchLatestTransactions() {
         final Subscription subscription = web3j
                 .transactionObservable()
-                .subscribe(tx -> {
-                    if (mainPresenter != null) {
-                        mainPresenter.receivedTransaction(tx);
-                    }
-        });
+                .subscribeOn(Schedulers.io())
+                .subscribe(tx -> mainPresenter.receivedTransaction(tx),
+                    err -> mainPresenter.failedTransaction(err));
 
         compositeSubscription.add(subscription);
     }
