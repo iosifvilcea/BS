@@ -12,7 +12,7 @@ public abstract class BaseInteractor {
     protected CompositeDisposable compositeDisposable;
 
     public BaseInteractor() {
-        ApiBuilder apiBuilder = new ApiBuilder();
+        final ApiBuilder apiBuilder = new ApiBuilder();
         apiService = apiBuilder.getApiService();
 
         compositeDisposable = new CompositeDisposable();

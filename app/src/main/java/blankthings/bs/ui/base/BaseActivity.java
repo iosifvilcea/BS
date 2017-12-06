@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.widget.Toast;
 
+import blankthings.bs.R;
 import butterknife.ButterKnife;
 
 
@@ -13,7 +15,7 @@ public abstract class BaseActivity<P extends BasePresenter>
         extends AppCompatActivity
         implements BaseView {
 
-    P presenter;
+    protected P presenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,7 +25,11 @@ public abstract class BaseActivity<P extends BasePresenter>
     }
 
     @Override
-    public void showError(String error) {
+    public void showError(@Nullable String error) {
+        if (TextUtils.isEmpty(error)) {
+            error = getString(R.string.generic_error);
+        }
+
         Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
     }
 
@@ -41,8 +47,8 @@ public abstract class BaseActivity<P extends BasePresenter>
 
 
     @Override
-    public void setTitle(String title) {
-        if (getSupportActionBar() != null) {
+    public void setTitle(@Nullable String title) {
+        if (getSupportActionBar() != null && !TextUtils.isEmpty(title)) {
             getSupportActionBar().setTitle(title);
         }
     }

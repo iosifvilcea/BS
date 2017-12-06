@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import butterknife.ButterKnife;
 
@@ -38,20 +37,32 @@ public abstract class BaseFragment<P extends BasePresenter>
 
 
     @Override
-    public void showError(String error) {
-        Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
+    public void showError(@Nullable String error) {
+        if (!(getActivity() instanceof BaseActivity)) {
+            throw new IllegalStateException("Parent Activity does not implement BaseActivity.");
+        }
+
+        ((BaseActivity)getActivity()).showError(error);
     }
 
 
     @Override
     public void showLoading() {
-        // TODO: 10/13/17
+        if (!(getActivity() instanceof BaseActivity)) {
+            throw new IllegalStateException("Parent Activity does not extend BaseActivity.");
+        }
+
+        ((BaseActivity)getActivity()).showLoading();
     }
 
 
     @Override
     public void hideLoading() {
-        // TODO: 10/13/17
+        if (!(getActivity() instanceof BaseActivity)) {
+            throw new IllegalStateException("Parent Activity does not extend BaseActivity.");
+        }
+
+        ((BaseActivity)getActivity()).hideLoading();
     }
 
 

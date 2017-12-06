@@ -7,7 +7,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import blankthings.bs.data.local.doa.PostDao;
 import blankthings.bs.ui.presenters.MainPresenterImpl;
 import blankthings.bs.ui.views.MainView;
 
@@ -18,9 +17,6 @@ public class MainPresenterTest extends BaseTest {
     @Mock
     MainView mainView;
 
-    @Mock
-    PostDao postDao;
-
     MainPresenterImpl mainPresenter;
 
     @Override
@@ -28,15 +24,13 @@ public class MainPresenterTest extends BaseTest {
         super.setup();
 
         mainView = Mockito.mock(MainView.class);
-        postDao = Mockito.mock(PostDao.class);
-        mainPresenter = new MainPresenterImpl(mainView, postDao);
+        mainPresenter = new MainPresenterImpl(mainView);
     }
 
     @Test
-    public void isPresenterAttached() {
+    public void attachedPresenterTest() {
         Assert.assertNotNull(mainPresenter.hasView());
     }
-
 
     @Override
     public void teardown() {
