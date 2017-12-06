@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">BS</string>
+    <string name="app_name">CryptoCap</string>
     <string name="generic_error">Oops, something went wrong.</string>
-
 </resources>

@@ -6,7 +6,7 @@ android {
     buildToolsVersion '26.0.2'
 
     defaultConfig {
-        applicationId "blankthings.cointick"
+        applicationId "blankthings.cryptocap"
         minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
