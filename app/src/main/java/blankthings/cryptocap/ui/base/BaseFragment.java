@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import blankthings.cryptocap.managers.NavigationManager;
 import butterknife.ButterKnife;
 
 
@@ -23,8 +24,9 @@ public abstract class BaseFragment<P extends BasePresenter>
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        final View view = inflater.inflate(getLayoutId(), container, true);
+        final View view = inflater.inflate(getLayoutId(), container, false);
         ButterKnife.bind(view);
+        presenter = createPresenter();
         return view;
     }
 
@@ -80,4 +82,16 @@ public abstract class BaseFragment<P extends BasePresenter>
         setTitle(getString(stringResource));
     }
 
+
+    @Override
+    public NavigationManager getNavigationManager() {
+        if (!(getActivity() instanceof BaseActivity)) {
+            throw new IllegalStateException("Parent Activity does not extend BaseActivity.");
+        }
+
+        return ((BaseActivity)getActivity()).getNavigationManager();
+    }
+
+
+    protected abstract P createPresenter();
 }

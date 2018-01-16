@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import blankthings.cryptocap.R;
+import blankthings.cryptocap.managers.NavigationManager;
 import butterknife.ButterKnife;
 
 
@@ -17,11 +18,14 @@ public abstract class BaseActivity<P extends BasePresenter>
 
     protected P presenter;
 
+    protected NavigationManager navigationManager;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         ButterKnife.bind(this);
+        navigationManager = new NavigationManager(this);
     }
 
     @Override
@@ -57,5 +61,11 @@ public abstract class BaseActivity<P extends BasePresenter>
     @Override
     public void setTitle(@StringRes int titleId) {
         setTitle(getString(titleId));
+    }
+
+
+    @Override
+    public NavigationManager getNavigationManager() {
+        return navigationManager;
     }
 }

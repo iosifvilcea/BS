@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import blankthings.cryptocap.R;
 import blankthings.cryptocap.ui.base.BaseFragment;
 import blankthings.cryptocap.ui.base.BaseView;
+import blankthings.cryptocap.ui.fragments.CoinsFragment;
 
 
 public class NavigationManager {
@@ -17,6 +18,11 @@ public class NavigationManager {
 
     public NavigationManager(final AppCompatActivity mainActivity) {
         activity = mainActivity;
+    }
+
+
+    public void goToCoins() {
+        changeFragment(CoinsFragment.newInstance(), CoinsFragment.TAG, false);
     }
 
 

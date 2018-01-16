@@ -3,6 +3,7 @@ package blankthings.cryptocap.data.models;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -10,9 +11,10 @@ import com.google.gson.annotations.SerializedName;
 @Entity(tableName = "coins")
 public class Coin {
 
+    @NonNull
     @PrimaryKey
     @SerializedName("id")
-    private String id;
+    private String id = "";
 
     @ColumnInfo(name = "name")
     @SerializedName("name")

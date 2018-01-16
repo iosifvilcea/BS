@@ -4,6 +4,8 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 
+import blankthings.cryptocap.managers.NavigationManager;
+
 
 public interface BaseView {
 
@@ -19,5 +21,7 @@ public interface BaseView {
 
     @LayoutRes
     int getLayoutId();
+
+    NavigationManager getNavigationManager();
 
 }
